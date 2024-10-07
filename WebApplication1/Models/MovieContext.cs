@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication1.Models
+namespace MovieList.Models
 {
     public class MovieContext : DbContext
     {

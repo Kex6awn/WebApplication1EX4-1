@@ -1,32 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WebApplication1.Models;
+using MovieList.Models;
 
-namespace WebApplication1.Controllers
+namespace MovieList.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private MovieContext context {  get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController (MovieContext ctx)
         {
-            _logger = logger;
+            context = ctx;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var movies = context.Movies.OrderBy(m => m.Name).ToList();
+            return View(movies);
         }
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

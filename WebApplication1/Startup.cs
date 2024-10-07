@@ -2,9 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
+using MovieList.Models;
 
-namespace WebApplication1
+namespace MovieList
 {
     public class Startup
     {
